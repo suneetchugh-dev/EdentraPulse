@@ -1,0 +1,208 @@
+.sidebar {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  height: calc(100vh - 70px);
+  width: 80px;
+  background: #1a2234;
+  padding: 1.5rem 0.75rem;
+  transform-origin: left;
+  transition: width 0.3s ease, padding 0.3s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  z-index: 100;
+  border-right: 1px solid #334155;
+  transition: all 0.3s ease;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--text-secondary) transparent;
+}
+
+.sidebar.expanded {
+  width: 220px;
+  padding: 1.5rem 1rem;
+}
+
+.collapse-btn {
+  position: absolute;
+  right: -12px;
+  top: 20px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--bg-primary);
+  border: 1px solid var(--primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+  color: var(--primary);
+  font-size: 0.9rem;
+  z-index: 10;
+}
+
+.collapse-btn:hover {
+  background: var(--primary);
+  color: var(--text-on-primary);
+  transform: scale(1.1) rotate(180deg);
+  border-color: var(--primary);
+}
+
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.profile-card {
+  padding: 0.5rem;
+  justify-content: center;
+}
+
+.profile-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.profile-img {
+  width: 40px;
+  height: 40px;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.att-mini {
+  font-size: 0.9rem;
+  color: #4a5568;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-filled {
+  height: 100%;
+  background: #3182ce;
+  transition: width 0.3s ease;
+}
+
+.badges {
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+.badge-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.badge {
+  padding: 0.75rem;
+  border-radius: 8px;
+  background: #edf2f7;
+  color: #4a5568;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.badge.unlocked {
+  background: #ebf8ff;
+  color: #3182ce;
+}
+
+.badge span {
+  font-size: 1.1rem;
+}
+
+.coach {
+  padding: 1.25rem;
+  background: var(--bg-tertiary);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.coach h4 {
+  margin: 0 0 1rem 0;
+  color: var(--accent-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.1rem;
+  text-shadow: 0 0 10px rgba(14, 165, 233, 0.2);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.coach h4 span {
+  font-size: 1.4rem;
+}
+
+.coach-tip {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  min-height: 3em;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  line-height: 1.5;
+}
+
+.sidebar:not(.expanded) .profile-info,
+.sidebar:not(.expanded) .coach-tip,
+.sidebar:not(.expanded) .badge-list {
+  display: none;
+}
+
+.sidebar:not(.expanded) .nav-text {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    left: -100%;
+    transition: all 0.3s ease;
+    top: 60px;
+    height: calc(100vh - 60px);
+    transform: none;
+    margin-top: 0;
+    width: 200px;
+  }
+
+  .sidebar.show {
+    left: 0;
+  }
+
+  .collapse-btn {
+    display: none;
+  }
+}

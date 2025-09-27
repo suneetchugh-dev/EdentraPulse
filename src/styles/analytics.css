@@ -1,0 +1,189 @@
+.analytics-page {
+  padding: 2rem;
+  padding-top: 5rem;
+  max-width: 1400px;
+  margin: 2rem auto;
+  background: #1a2234;
+  min-height: calc(100vh - 4rem);
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border: 1px solid #2c3e50;
+  color: #e2e8f0;
+}
+
+.analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.analytics-card {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border: 1px solid #334155;
+  width: 100%;
+  min-height: 140px;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+}
+
+.analytics-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  border-color: #60a5fa;
+}
+
+.analytics-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  background: var(--bg-tertiary);
+}
+
+.attendance-trend {
+  grid-column: 1 / -1;
+  min-height: 400px;
+  background: #2c3e50;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+  border: 1px solid #3f4f61;
+  position: relative;
+  overflow: hidden;
+}
+
+.attendance-trend canvas {
+  --chart-primary: #3b82f6;
+  --chart-secondary: #60a5fa;
+  --chart-success: #4ade80;
+  --chart-warning: #fbbf24;
+  --chart-grid: #94a3b8;
+  --chart-line-width: 3px;
+  --chart-point-size: 6px;
+  background-color: #1e293b;
+}
+
+.attendance-trend {
+  background: linear-gradient(to bottom, #1e293b, #2c3e50);
+}
+
+.analytics-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.analytics-card:hover::before {
+  opacity: 1;
+}
+
+.analytics-card h3 {
+  margin: 0 0 1rem 0;
+  color: var(--text-primary);
+  font-size: 1.25rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.analytics-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: #f8fafc;
+  font-weight: 600;
+}
+
+.analytics-card p {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #60a5fa;
+  margin: 0;
+}
+
+.analytics-card .trend {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.analytics-card .trend.up {
+  color: #4ade80;
+}
+
+.analytics-card .trend.down {
+  color: #f87171;
+}
+
+.analytics-card .chart {
+  margin-top: 1rem;
+  flex-grow: 1;
+}
+
+.analytics-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 1rem 0;
+}
+
+.analytics-subtitle {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.page-title {
+  font-size: 1.875rem;
+  margin-bottom: 2rem;
+  color: #f8fafc;
+  font-weight: 600;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #334155;
+}
+
+.analytics-container {
+  padding: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .analytics-page {
+    padding: 1rem;
+    padding-top: 4rem;
+    padding-bottom: 5rem;
+  }
+
+  .analytics-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .analytics-card {
+    padding: 1.25rem;
+    min-height: 250px;
+  }
+
+  .attendance-trend {
+    min-height: 300px;
+    padding: 1.25rem;
+  }
+
+  .analytics-value {
+    font-size: 2rem;
+  }
+}
